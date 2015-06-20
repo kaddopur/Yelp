@@ -15,6 +15,7 @@
 		AE33E79C1B32CC1800BC309A /* YelpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E79B1B32CC1800BC309A /* YelpTests.m */; };
 		AE33E7A91B35770400BC309A /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7A81B35770400BC309A /* ResultViewController.m */; };
 		AE33E7AD1B35797200BC309A /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7AC1B35797200BC309A /* ResultCell.m */; };
+		AE33E7B01B35E42B00BC309A /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7AF1B35E42B00BC309A /* FilterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		AE33E7A81B35770400BC309A /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		AE33E7AB1B35797200BC309A /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
 		AE33E7AC1B35797200BC309A /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
+		AE33E7AE1B35E42B00BC309A /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		AE33E7AF1B35E42B00BC309A /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 			children = (
 				AE33E7A71B35770400BC309A /* ResultViewController.h */,
 				AE33E7A81B35770400BC309A /* ResultViewController.m */,
+				AE33E7AE1B35E42B00BC309A /* FilterViewController.h */,
+				AE33E7AF1B35E42B00BC309A /* FilterViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			files = (
 				AE33E7851B32CC1800BC309A /* AppDelegate.m in Sources */,
 				AE33E7821B32CC1800BC309A /* main.m in Sources */,
+				AE33E7B01B35E42B00BC309A /* FilterViewController.m in Sources */,
 				AE33E7AD1B35797200BC309A /* ResultCell.m in Sources */,
 				AE33E7A91B35770400BC309A /* ResultViewController.m in Sources */,
 			);

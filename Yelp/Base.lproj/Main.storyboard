@@ -116,7 +116,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="1pe-6Z-l40">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" style="plain" id="RQc-hx-u54"/>
+                        <barButtonItem key="leftBarButtonItem" title="Filter" style="plain" id="RQc-hx-u54">
+                            <connections>
+                                <segue destination="gjT-MF-QxI" kind="modal" id="OUo-nZ-0l6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hWb-l2-rzs" id="eyH-JO-m90"/>
@@ -126,12 +130,37 @@
             </objects>
             <point key="canvasLocation" x="700" y="366"/>
         </scene>
+        <!--Filter-->
+        <scene sceneID="chu-hY-fKd">
+            <objects>
+                <viewController id="qVs-wO-jRf" customClass="FilterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Af-kA-F7N"/>
+                        <viewControllerLayoutGuide type="bottom" id="1mk-nU-7Ah"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7NE-xs-9wU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filter" id="Pn4-gH-cMF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="N3p-vI-XDU">
+                            <connections>
+                                <action selector="doneButtonClicked:" destination="qVs-wO-jRf" id="kVU-9b-0T5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4a-9G-Yfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790" y="358"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y4E-ig-Xnc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3U6-XB-4wo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sxj-QQ-PdK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Sxj-QQ-PdK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,6 +174,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9h-6P-hPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="173" y="366"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lh1-T4-qCp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gjT-MF-QxI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="0Eb-X5-Auq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.68627450980000004" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qVs-wO-jRf" kind="relationship" relationship="rootViewController" id="zc1-KB-0Ko"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xEp-zF-zes" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="358"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
