@@ -22,6 +22,13 @@
 
     self.tableView.estimatedRowHeight = 72.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    [searchBar sizeToFit];
+    searchBar.searchBarStyle = UISearchBarStyleDefault;
+    self.navigationItem.titleView = searchBar;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,7 +39,7 @@
 #pragma mark - TableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    return 16;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -115,7 +115,9 @@
                             <constraint firstItem="hWb-l2-rzs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="b2x-vL-JPP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Result" id="1pe-6Z-l40"/>
+                    <navigationItem key="navigationItem" title="Result" id="1pe-6Z-l40">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" style="plain" id="RQc-hx-u54"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hWb-l2-rzs" id="eyH-JO-m90"/>
                     </connections>
@@ -132,6 +134,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sxj-QQ-PdK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.68627450980392157" green="0.023529411764705882" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
