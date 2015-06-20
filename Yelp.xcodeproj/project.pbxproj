@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		AE33E7821B32CC1800BC309A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7811B32CC1800BC309A /* main.m */; };
 		AE33E7851B32CC1800BC309A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7841B32CC1800BC309A /* AppDelegate.m */; };
-		AE33E7881B32CC1800BC309A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7871B32CC1800BC309A /* ViewController.m */; };
 		AE33E78B1B32CC1800BC309A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE33E7891B32CC1800BC309A /* Main.storyboard */; };
 		AE33E78D1B32CC1800BC309A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE33E78C1B32CC1800BC309A /* Images.xcassets */; };
 		AE33E7901B32CC1800BC309A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE33E78E1B32CC1800BC309A /* LaunchScreen.xib */; };
 		AE33E79C1B32CC1800BC309A /* YelpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E79B1B32CC1800BC309A /* YelpTests.m */; };
+		AE33E7A91B35770400BC309A /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7A81B35770400BC309A /* ResultViewController.m */; };
+		AE33E7AD1B35797200BC309A /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7AC1B35797200BC309A /* ResultCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +33,16 @@
 		AE33E7811B32CC1800BC309A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE33E7831B32CC1800BC309A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AE33E7841B32CC1800BC309A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AE33E7861B32CC1800BC309A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AE33E7871B32CC1800BC309A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AE33E78A1B32CC1800BC309A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE33E78C1B32CC1800BC309A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AE33E78F1B32CC1800BC309A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AE33E7951B32CC1800BC309A /* YelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE33E79A1B32CC1800BC309A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE33E79B1B32CC1800BC309A /* YelpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YelpTests.m; sourceTree = "<group>"; };
+		AE33E7A71B35770400BC309A /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		AE33E7A81B35770400BC309A /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		AE33E7AB1B35797200BC309A /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
+		AE33E7AC1B35797200BC309A /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +84,10 @@
 		AE33E77E1B32CC1800BC309A /* Yelp */ = {
 			isa = PBXGroup;
 			children = (
+				AE33E7AA1B35794C00BC309A /* Views */,
+				AE33E7A61B35764E00BC309A /* Controllers */,
 				AE33E7831B32CC1800BC309A /* AppDelegate.h */,
 				AE33E7841B32CC1800BC309A /* AppDelegate.m */,
-				AE33E7861B32CC1800BC309A /* ViewController.h */,
-				AE33E7871B32CC1800BC309A /* ViewController.m */,
 				AE33E7891B32CC1800BC309A /* Main.storyboard */,
 				AE33E78C1B32CC1800BC309A /* Images.xcassets */,
 				AE33E78E1B32CC1800BC309A /* LaunchScreen.xib */,
@@ -117,6 +120,24 @@
 				AE33E79A1B32CC1800BC309A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE33E7A61B35764E00BC309A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE33E7A71B35770400BC309A /* ResultViewController.h */,
+				AE33E7A81B35770400BC309A /* ResultViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AE33E7AA1B35794C00BC309A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE33E7AB1B35797200BC309A /* ResultCell.h */,
+				AE33E7AC1B35797200BC309A /* ResultCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE33E7881B32CC1800BC309A /* ViewController.m in Sources */,
 				AE33E7851B32CC1800BC309A /* AppDelegate.m in Sources */,
 				AE33E7821B32CC1800BC309A /* main.m in Sources */,
+				AE33E7AD1B35797200BC309A /* ResultCell.m in Sources */,
+				AE33E7A91B35770400BC309A /* ResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +440,7 @@
 				AE33E7A11B32CC1800BC309A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE33E7A21B32CC1800BC309A /* Build configuration list for PBXNativeTarget "YelpTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +449,7 @@
 				AE33E7A41B32CC1800BC309A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
