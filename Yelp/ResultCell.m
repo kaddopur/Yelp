@@ -7,6 +7,8 @@
 //
 
 #import "ResultCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "Business.h"
 
 @implementation ResultCell
 
@@ -21,6 +23,16 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)loadBusiness:(Business *)business {
+    [self.coverImageView setImageWithURL:[NSURL URLWithString:business.coverImageUrl]];
+    self.nameLabel.text = business.name;
+    [self.ratingImageView setImageWithURL:[NSURL URLWithString:business.ratingImageUrl]];
+    self.reviewLabel.text = business.review;
+    self.addressLabel.text = business.address;
+    self.categoriesLabel.text = business.categories;
+    self.mileLabel;
 }
 
 - (void)layoutSubviews {

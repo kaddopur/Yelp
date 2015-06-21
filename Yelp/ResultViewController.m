@@ -10,6 +10,7 @@
 #import "ResultCell.h"
 #import "YPAPISample.h"
 #import "Business.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ResultViewController ()
 @end
@@ -32,14 +33,10 @@
     self.navigationItem.titleView = searchBar;
     
     
-//    [self updateBusinessWithTerm:nil andLocation:nil];
-    
-    
     self.businesses = [[NSMutableArray alloc] initWithArray:@[]];
     
-    [self.businesses addObject:[[Business alloc] init]];
-    [self.businesses addObject:[[Business alloc] init]];
-    [self.tableView reloadData];
+    
+    [self updateBusinessWithTerm:nil andLocation:nil];
 }
 
 - (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation {
@@ -58,16 +55,19 @@
     dispatch_group_t requestGroup = dispatch_group_create();
     
     dispatch_group_enter(requestGroup);
-    [APISample queryTopBusinessInfoForTerm:term location:location completionHandler:^(NSDictionary *topBusinessJSON, NSError *error) {
+    [APISample queryTopBusinessInfoForTerm:term location:location completionHandler:^(NSDictionary *businesses, NSError *error) {
         
         if (error) {
             NSLog(@"An error happened during the request: %@", error);
-        } else if (topBusinessJSON) {
-            NSLog(@"Top business info: \n %@", topBusinessJSON);
+        } else if (businesses) {
+            for(NSDictionary *business in businesses[@"businesses"]) {
+                [self.businesses addObject:[[Business alloc] initWithData:business]];
+            }
         } else {
             NSLog(@"No business was found");
         }
         
+        [self.tableView reloadData];
         dispatch_group_leave(requestGroup);
     }];
     
@@ -88,8 +88,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ResultCellId" forIndexPath:indexPath];
     Business *business = self.businesses[indexPath.row];
-    
-    cell.nameLabel.text = business.name;
+    [cell loadBusiness:business];
 
     return cell;
 }

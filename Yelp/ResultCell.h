@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoriesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mileLabel;
 
+- (void)loadBusiness:(NSDictionary *)business;
+
 @end

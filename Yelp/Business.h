@@ -11,7 +11,12 @@
 @interface Business : NSObject
 
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *review;
+@property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *categories;
+@property (strong, nonatomic) NSString *coverImageUrl;
+@property (strong, nonatomic) NSString *ratingImageUrl;
 
-- (void)initializeWithData:(NSDictionary *)buninessData;
+- (Business *)initWithData:(NSDictionary *)businessData;
 
 @end

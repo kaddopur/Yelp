@@ -10,18 +10,37 @@
 
 @implementation Business
 
-- (Business *)init {
+- (Business *)initWithData:(NSDictionary *)businessData {
     self = [super init];
     
     if (self) {
-        self.name = @"Business name";
+        self.coverImageUrl = businessData[@"image_url"];
+        self.name = businessData[@"name"];
+        self.ratingImageUrl = businessData[@"rating_img_url"];
+        self.review = [NSString stringWithFormat:@"%@ Reviews", businessData[@"review_count"]];
+        self.address = [self getAddressWithBusiness:businessData];
+        self.categories = [self getCategoriesWithBusiness:businessData];
+//        cell.mileLabel;
+        
+        NSString *temp = [self getCategoriesWithBusiness:businessData];
+        NSLog(temp);
     }
     
     return self;
 }
 
-- (void)initializeWithData:(NSDictionary *)buninessData {
-    self.name = @"asdf";
+- (NSString *)getCategoriesWithBusiness:(NSDictionary *)businessData {
+    NSMutableArray *categoryTags = [NSMutableArray arrayWithArray:@[]];
+    
+    for (NSArray *category in businessData[@"categories"]) {
+        [categoryTags addObject:category[0]];
+    }
+    
+    return [categoryTags componentsJoinedByString:@", "];
 }
 
+- (NSString *)getAddressWithBusiness:(NSDictionary *)businessData {
+    NSArray *displayAddress = [[businessData valueForKeyPath:@"location.display_address"] subarrayWithRange:NSMakeRange(0, 2)];
+    return [displayAddress componentsJoinedByString:@", "];
+}
 @end
