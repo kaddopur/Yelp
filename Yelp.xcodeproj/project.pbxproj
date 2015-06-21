@@ -16,6 +16,8 @@
 		AE33E7A91B35770400BC309A /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7A81B35770400BC309A /* ResultViewController.m */; };
 		AE33E7AD1B35797200BC309A /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7AC1B35797200BC309A /* ResultCell.m */; };
 		AE33E7B01B35E42B00BC309A /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7AF1B35E42B00BC309A /* FilterViewController.m */; };
+		AE51CF361B36A07400FB752B /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AE51CF351B36A07400FB752B /* NSURLRequest+OAuth.m */; };
+		AE51CF391B36A09900FB752B /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = AE51CF381B36A09900FB752B /* YPAPISample.m */; };
 		E26EA11F34A89F69496B8A8E /* libPods-Yelp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC521E5BABDDC097196FF05 /* libPods-Yelp.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,10 @@
 		AE33E7AC1B35797200BC309A /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
 		AE33E7AE1B35E42B00BC309A /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		AE33E7AF1B35E42B00BC309A /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		AE51CF341B36A07400FB752B /* NSURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+OAuth.h"; path = "../../../../sandbox/yelp-api/v2/objective-c/YelpAPISample/NSURLRequest+OAuth.h"; sourceTree = "<group>"; };
+		AE51CF351B36A07400FB752B /* NSURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+OAuth.m"; path = "../../../../sandbox/yelp-api/v2/objective-c/YelpAPISample/NSURLRequest+OAuth.m"; sourceTree = "<group>"; };
+		AE51CF371B36A09900FB752B /* YPAPISample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YPAPISample.h; path = "../../../../sandbox/yelp-api/v2/objective-c/YelpAPISample/YPAPISample.h"; sourceTree = "<group>"; };
+		AE51CF381B36A09900FB752B /* YPAPISample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YPAPISample.m; path = "../../../../sandbox/yelp-api/v2/objective-c/YelpAPISample/YPAPISample.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		AE33E77E1B32CC1800BC309A /* Yelp */ = {
 			isa = PBXGroup;
 			children = (
+				AE51CF331B36A05200FB752B /* Api */,
 				AE33E7AA1B35794C00BC309A /* Views */,
 				AE33E7A61B35764E00BC309A /* Controllers */,
 				AE33E7831B32CC1800BC309A /* AppDelegate.h */,
@@ -159,6 +166,17 @@
 				AE33E7AC1B35797200BC309A /* ResultCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		AE51CF331B36A05200FB752B /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				AE51CF341B36A07400FB752B /* NSURLRequest+OAuth.h */,
+				AE51CF351B36A07400FB752B /* NSURLRequest+OAuth.m */,
+				AE51CF371B36A09900FB752B /* YPAPISample.h */,
+				AE51CF381B36A09900FB752B /* YPAPISample.m */,
+			);
+			name = Api;
 			sourceTree = "<group>";
 		};
 		CCCFA565D73C96A774FB664F /* Frameworks */ = {
@@ -306,8 +324,10 @@
 			files = (
 				AE33E7851B32CC1800BC309A /* AppDelegate.m in Sources */,
 				AE33E7821B32CC1800BC309A /* main.m in Sources */,
+				AE51CF391B36A09900FB752B /* YPAPISample.m in Sources */,
 				AE33E7B01B35E42B00BC309A /* FilterViewController.m in Sources */,
 				AE33E7AD1B35797200BC309A /* ResultCell.m in Sources */,
+				AE51CF361B36A07400FB752B /* NSURLRequest+OAuth.m in Sources */,
 				AE33E7A91B35770400BC309A /* ResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

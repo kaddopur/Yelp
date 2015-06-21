@@ -48,3 +48,9 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 4
 
+// OAuthConsumer
+#define COCOAPODS_POD_AVAILABLE_OAuthConsumer
+#define COCOAPODS_VERSION_MAJOR_OAuthConsumer 1
+#define COCOAPODS_VERSION_MINOR_OAuthConsumer 0
+#define COCOAPODS_VERSION_PATCH_OAuthConsumer 3
+
