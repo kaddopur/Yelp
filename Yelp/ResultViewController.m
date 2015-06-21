@@ -9,6 +9,7 @@
 #import "ResultViewController.h"
 #import "ResultCell.h"
 #import "YPAPISample.h"
+#import "Business.h"
 
 @interface ResultViewController ()
 @end
@@ -31,7 +32,14 @@
     self.navigationItem.titleView = searchBar;
     
     
-    [self updateBusinessWithTerm:nil andLocation:nil];
+//    [self updateBusinessWithTerm:nil andLocation:nil];
+    
+    
+    self.businesses = [[NSMutableArray alloc] initWithArray:@[]];
+    
+    [self.businesses addObject:[[Business alloc] init]];
+    [self.businesses addObject:[[Business alloc] init]];
+    [self.tableView reloadData];
 }
 
 - (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation {
@@ -74,11 +82,14 @@
 #pragma mark - TableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 16;
+    return self.businesses.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ResultCellId" forIndexPath:indexPath];
+    Business *business = self.businesses[indexPath.row];
+    
+    cell.nameLabel.text = business.name;
 
     return cell;
 }

@@ -18,6 +18,7 @@
 		AE33E7B01B35E42B00BC309A /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7AF1B35E42B00BC309A /* FilterViewController.m */; };
 		AE51CF361B36A07400FB752B /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AE51CF351B36A07400FB752B /* NSURLRequest+OAuth.m */; };
 		AE51CF391B36A09900FB752B /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = AE51CF381B36A09900FB752B /* YPAPISample.m */; };
+		AE51CF3D1B36A53E00FB752B /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = AE51CF3C1B36A53E00FB752B /* Business.m */; };
 		E26EA11F34A89F69496B8A8E /* libPods-Yelp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC521E5BABDDC097196FF05 /* libPods-Yelp.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		AE51CF351B36A07400FB752B /* NSURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+OAuth.m"; path = "../../../../sandbox/yelp-api/v2/objective-c/YelpAPISample/NSURLRequest+OAuth.m"; sourceTree = "<group>"; };
 		AE51CF371B36A09900FB752B /* YPAPISample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YPAPISample.h; path = "../../../../sandbox/yelp-api/v2/objective-c/YelpAPISample/YPAPISample.h"; sourceTree = "<group>"; };
 		AE51CF381B36A09900FB752B /* YPAPISample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YPAPISample.m; path = "../../../../sandbox/yelp-api/v2/objective-c/YelpAPISample/YPAPISample.m"; sourceTree = "<group>"; };
+		AE51CF3B1B36A53E00FB752B /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
+		AE51CF3C1B36A53E00FB752B /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 		AE33E77E1B32CC1800BC309A /* Yelp */ = {
 			isa = PBXGroup;
 			children = (
+				AE51CF3A1B36A50A00FB752B /* Models */,
 				AE51CF331B36A05200FB752B /* Api */,
 				AE33E7AA1B35794C00BC309A /* Views */,
 				AE33E7A61B35764E00BC309A /* Controllers */,
@@ -177,6 +181,15 @@
 				AE51CF381B36A09900FB752B /* YPAPISample.m */,
 			);
 			name = Api;
+			sourceTree = "<group>";
+		};
+		AE51CF3A1B36A50A00FB752B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE51CF3B1B36A53E00FB752B /* Business.h */,
+				AE51CF3C1B36A53E00FB752B /* Business.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		CCCFA565D73C96A774FB664F /* Frameworks */ = {
@@ -323,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE33E7851B32CC1800BC309A /* AppDelegate.m in Sources */,
+				AE51CF3D1B36A53E00FB752B /* Business.m in Sources */,
 				AE33E7821B32CC1800BC309A /* main.m in Sources */,
 				AE51CF391B36A09900FB752B /* YPAPISample.m in Sources */,
 				AE33E7B01B35E42B00BC309A /* FilterViewController.m in Sources */,
