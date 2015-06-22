@@ -20,21 +20,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // set TableView properties
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-
     self.tableView.estimatedRowHeight = 72.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     
+    // set SearchBar propterties
     UISearchBar *searchBar = [[UISearchBar alloc] init];
     [searchBar sizeToFit];
     searchBar.searchBarStyle = UISearchBarStyleDefault;
     self.navigationItem.titleView = searchBar;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
     
+    
+    // init TableView data
     self.businesses = [[NSMutableArray alloc] initWithArray:@[]];
     [self updateBusinessWithTerm:nil andLocation:nil];
+}
+
+-(void)dismissKeyboard {
+    [self.navigationItem.titleView resignFirstResponder];
 }
 
 - (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation {

@@ -37,7 +37,7 @@
     CLLocation *location = [[CLLocation alloc] initWithLatitude:businessLat
                                                       longitude:businessLng];
     
-    return [NSString stringWithFormat:@"%.1fmi", [location distanceFromLocation:center] * meterToMile];
+    return [NSString stringWithFormat:@"%.1f mi", [location distanceFromLocation:center] * meterToMile];
 }
 
 - (NSString *)getCategoriesWithBusiness:(NSDictionary *)businessData {
