@@ -7,6 +7,7 @@
 //
 
 #import "Business.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation Business
 
@@ -20,13 +21,23 @@
         self.review = [NSString stringWithFormat:@"%@ Reviews", businessData[@"review_count"]];
         self.address = [self getAddressWithBusiness:businessData];
         self.categories = [self getCategoriesWithBusiness:businessData];
-//        cell.mileLabel;
-        
-        NSString *temp = [self getCategoriesWithBusiness:businessData];
-        NSLog(temp);
+        self.miles = [self getMilesWithBusiness:businessData];
     }
     
     return self;
+}
+
+- (NSString *)getMilesWithBusiness:(NSDictionary *)businessData {
+    CLLocation const *center = [[CLLocation alloc] initWithLatitude:37.78387902553055
+                                                          longitude:-122.401245644026];
+    double const meterToMile = 0.000621371;
+    
+    double businessLat = [[businessData valueForKeyPath:@"location.coordinate.latitude"] doubleValue];
+    double businessLng = [[businessData valueForKeyPath:@"location.coordinate.longitude"] doubleValue];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:businessLat
+                                                      longitude:businessLng];
+    
+    return [NSString stringWithFormat:@"%.1fmi", [location distanceFromLocation:center] * meterToMile];
 }
 
 - (NSString *)getCategoriesWithBusiness:(NSDictionary *)businessData {

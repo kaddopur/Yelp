@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *review;
 @property (strong, nonatomic) NSString *address;
 @property (strong, nonatomic) NSString *categories;
+@property (strong, nonatomic) NSString *miles;
 @property (strong, nonatomic) NSString *coverImageUrl;
 @property (strong, nonatomic) NSString *ratingImageUrl;
 

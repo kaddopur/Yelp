@@ -34,8 +34,6 @@
     
     
     self.businesses = [[NSMutableArray alloc] initWithArray:@[]];
-    
-    
     [self updateBusinessWithTerm:nil andLocation:nil];
 }
 

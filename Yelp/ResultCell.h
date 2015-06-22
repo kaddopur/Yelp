@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+AFNetworking.h"
+#import "Business.h"
 
 @interface ResultCell : UITableViewCell
 
@@ -18,6 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoriesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mileLabel;
 
-- (void)loadBusiness:(NSDictionary *)business;
+- (void)loadBusiness:(Business *)business;
 
 @end

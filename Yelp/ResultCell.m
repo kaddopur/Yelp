@@ -7,8 +7,6 @@
 //
 
 #import "ResultCell.h"
-#import "UIImageView+AFNetworking.h"
-#import "Business.h"
 
 @implementation ResultCell
 
@@ -32,7 +30,7 @@
     self.reviewLabel.text = business.review;
     self.addressLabel.text = business.address;
     self.categoriesLabel.text = business.categories;
-    self.mileLabel;
+    self.mileLabel.text = business.miles;
 }
 
 - (void)layoutSubviews {
