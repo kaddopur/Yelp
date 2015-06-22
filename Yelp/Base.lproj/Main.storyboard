@@ -30,25 +30,25 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Cockscomb" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hem-AH-R8g">
                                                     <rect key="frame" x="88" y="8" width="185" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZDQ-OP-pMd">
                                                     <rect key="frame" x="88" y="28" width="84" height="17"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="84" id="eqB-6u-GNd"/>
                                                         <constraint firstAttribute="height" constant="17" id="kD7-2L-lYK"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="564 4th St, SoMa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9G-zG-mad">
-                                                    <rect key="frame" x="88" y="49" width="97" height="15"/>
+                                                    <rect key="frame" x="88" y="49" width="224" height="15"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bars, American (New)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-gx-0qc">
-                                                    <rect key="frame" x="88" y="66" width="121" height="15"/>
+                                                    <rect key="frame" x="88" y="66" width="224" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ge9-bc-OIV">
                                                     <rect key="frame" x="8" y="8" width="72" height="72"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="72" id="GEC-k8-mVZ"/>
                                                         <constraint firstAttribute="height" constant="72" id="fFG-HT-icZ"/>
@@ -78,6 +78,7 @@
                                                 <constraint firstItem="Vid-gx-0qc" firstAttribute="top" secondItem="b9G-zG-mad" secondAttribute="bottom" constant="2" id="1XR-q8-JKr"/>
                                                 <constraint firstItem="ZDQ-OP-pMd" firstAttribute="top" secondItem="Hem-AH-R8g" secondAttribute="bottom" constant="3" id="3LG-Sb-Ta3"/>
                                                 <constraint firstItem="Hem-AH-R8g" firstAttribute="leading" secondItem="Vid-gx-0qc" secondAttribute="leading" id="5rQ-z1-oBT"/>
+                                                <constraint firstItem="b9G-zG-mad" firstAttribute="trailing" secondItem="FzY-uk-Kk5" secondAttribute="trailingMargin" id="65u-LT-8nI"/>
                                                 <constraint firstItem="Hem-AH-R8g" firstAttribute="top" secondItem="FzY-uk-Kk5" secondAttribute="topMargin" id="79V-Iz-n2i"/>
                                                 <constraint firstItem="gIq-3K-2Ih" firstAttribute="leading" secondItem="Hem-AH-R8g" secondAttribute="trailing" constant="8" id="7du-aL-R4f"/>
                                                 <constraint firstItem="ge9-bc-OIV" firstAttribute="top" secondItem="FzY-uk-Kk5" secondAttribute="topMargin" id="EMh-1c-YdN"/>
@@ -91,6 +92,7 @@
                                                 <constraint firstItem="Hem-AH-R8g" firstAttribute="leading" secondItem="b9G-zG-mad" secondAttribute="leading" id="bND-TT-g40"/>
                                                 <constraint firstItem="gIq-3K-2Ih" firstAttribute="top" secondItem="FzY-uk-Kk5" secondAttribute="topMargin" constant="2" id="bRL-I2-Bno"/>
                                                 <constraint firstItem="ge9-bc-OIV" firstAttribute="leading" secondItem="FzY-uk-Kk5" secondAttribute="leadingMargin" id="nQt-ij-vHG"/>
+                                                <constraint firstItem="Vid-gx-0qc" firstAttribute="trailing" secondItem="FzY-uk-Kk5" secondAttribute="trailingMargin" id="tVq-yy-sXs"/>
                                                 <constraint firstItem="ZDQ-OP-pMd" firstAttribute="centerY" secondItem="4CI-QN-q9L" secondAttribute="centerY" id="tde-ex-YDn"/>
                                             </constraints>
                                         </tableViewCellContentView>
