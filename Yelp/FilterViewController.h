@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FilterViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
-- (IBAction)onSearchButton:(id)sender;
-- (IBAction)onCancelButton:(id)sender;
-
-
-
+@interface FilterViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (strong, nonatomic) NSArray *_pickerData;
+
+- (IBAction)onSearchButton:(id)sender;
+- (IBAction)onCancelButton:(id)sender;
 
 @end

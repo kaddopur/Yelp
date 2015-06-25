@@ -27,7 +27,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Private method
 
 - (IBAction)onSearchButton:(id)sender {
@@ -36,25 +35,6 @@
 
 - (IBAction)onCancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-// The number of columns of data
-- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
-// The number of rows of data
-- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    return self._pickerData.count;
-}
-
-// The data to return for the row and component (column) that's being passed in
-- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    return self._pickerData[row];
 }
 
 @end
