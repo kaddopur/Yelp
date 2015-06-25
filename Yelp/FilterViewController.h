@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSDictionary *filters;
 @property (strong, nonatomic) NSArray *filterSectionTitles;
 @property (strong, nonatomic) NSMutableSet *activeFilters;
+@property (weak, nonatomic) NSUserDefaults *defaults;
 
 - (IBAction)onSearchButton:(id)sender;
 - (IBAction)onCancelButton:(id)sender;

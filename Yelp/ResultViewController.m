@@ -50,7 +50,7 @@
 }
 
 - (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation andQuery:(NSDictionary *)searchQuery {
-    NSString *defaultTerm = @"dinner";
+    NSString *defaultTerm = @"";
     NSString *defaultLocation = @"San Francisco, CA";
     NSDictionary *defaultQuery = @{};
     

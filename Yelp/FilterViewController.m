@@ -17,6 +17,8 @@
     [super viewDidLoad];
     
     [self getInitialState];
+    self.defaults = [NSUserDefaults standardUserDefaults];
+    self.activeFilters = [NSMutableSet setWithArray:[self.defaults objectForKey:@"activeFilters"]];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -116,6 +118,8 @@
 }
 
 - (IBAction)onSearchButton:(id)sender {
+    [self.defaults setObject:[NSArray arrayWithArray:[self.activeFilters allObjects]] forKey:@"activeFilters"];
+    [self.defaults synchronize];
     [self.delegate filterViewController:self didChangeFilters:[self formatQuery]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
