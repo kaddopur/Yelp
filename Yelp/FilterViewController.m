@@ -110,7 +110,7 @@
             }
         }
     }
-    [queryParams setValue:[categories componentsJoinedByString:@","] forKey:@"categories"];
+    [queryParams setValue:categories forKey:@"categories"];
     
     return queryParams;
 }
