@@ -49,7 +49,6 @@
     if ([state[@"on"] integerValue] == 1) {
         if (![section isEqualToString:@"categories"]) {
             for(NSString *siblingFilter in self.filters[section]) {
-                NSLog(@"%@", siblingFilter);
                 [self.activeFilters removeObject:siblingFilter];
             }
         }
@@ -96,7 +95,24 @@
 #pragma mark - Private method
 
 - (NSDictionary *)formatQuery {
-    return @{};
+    NSMutableDictionary *queryParams = [NSMutableDictionary dictionary];
+    NSMutableArray *categories = [NSMutableArray array];
+    
+    for (NSString *section in self.filters) {
+        for (NSString *filter in self.filters[section]) {
+            if ([self.activeFilters containsObject:filter]) {
+                if (![section isEqualToString:@"categories"]) {
+                    [queryParams setValue:filter forKey:section];
+                    break;
+                } else {
+                    [categories addObject:filter];
+                }
+            }
+        }
+    }
+    [queryParams setValue:[categories componentsJoinedByString:@","] forKey:@"categories"];
+    
+    return queryParams;
 }
 
 - (IBAction)onSearchButton:(id)sender {
