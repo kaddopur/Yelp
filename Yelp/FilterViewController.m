@@ -33,7 +33,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FilterCellId" forIndexPath:indexPath];
+    FilterCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FilterCellId" forIndexPath:indexPath];
+    
+    cell.titleLabel.text = (NSString *)self.animals[indexPath.row];
+    cell.toggleSwitch.on = NO;
     
     return cell;
 }

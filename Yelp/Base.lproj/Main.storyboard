@@ -148,7 +148,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCellId" id="h7f-wW-whC">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCellId" id="h7f-wW-whC" customClass="FilterCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h7f-wW-whC" id="Ya4-SS-lxD">
@@ -156,6 +156,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TcH-Ua-2Wr">
                                                     <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="NvE-t3-p9n"/>
+                                                    </constraints>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz8-o0-2ld">
                                                     <rect key="frame" x="8" y="11" width="247" height="21"/>
@@ -168,10 +171,14 @@
                                                 <constraint firstItem="vz8-o0-2ld" firstAttribute="leading" secondItem="Ya4-SS-lxD" secondAttribute="leadingMargin" id="MAd-Gy-xvg"/>
                                                 <constraint firstAttribute="centerY" secondItem="vz8-o0-2ld" secondAttribute="centerY" id="b0h-mg-2u8"/>
                                                 <constraint firstAttribute="centerY" secondItem="TcH-Ua-2Wr" secondAttribute="centerY" id="hSD-tj-fcY"/>
+                                                <constraint firstItem="TcH-Ua-2Wr" firstAttribute="leading" secondItem="vz8-o0-2ld" secondAttribute="trailing" constant="8" id="jUp-ZE-cbF"/>
                                                 <constraint firstItem="TcH-Ua-2Wr" firstAttribute="trailing" secondItem="Ya4-SS-lxD" secondAttribute="trailingMargin" id="s6t-iq-wjQ"/>
-                                                <constraint firstItem="TcH-Ua-2Wr" firstAttribute="leading" secondItem="vz8-o0-2ld" secondAttribute="trailing" constant="8" id="yhu-8O-yj1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="vz8-o0-2ld" id="KvE-c8-HMd"/>
+                                            <outlet property="toggleSwitch" destination="TcH-Ua-2Wr" id="mKm-Mf-RdD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

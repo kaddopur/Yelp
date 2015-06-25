@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE0592361B3C191B00DE8B3D /* FilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0592351B3C191B00DE8B3D /* FilterCell.m */; };
 		AE33E7821B32CC1800BC309A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7811B32CC1800BC309A /* main.m */; };
 		AE33E7851B32CC1800BC309A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33E7841B32CC1800BC309A /* AppDelegate.m */; };
 		AE33E78B1B32CC1800BC309A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE33E7891B32CC1800BC309A /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 		1EB07ED9430CA17E292B491B /* Pods-Yelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.debug.xcconfig"; sourceTree = "<group>"; };
 		3C4CBC44E69B844F16B1DE28 /* Pods-Yelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.release.xcconfig"; sourceTree = "<group>"; };
 		8FC521E5BABDDC097196FF05 /* libPods-Yelp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yelp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE0592341B3C191B00DE8B3D /* FilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCell.h; sourceTree = "<group>"; };
+		AE0592351B3C191B00DE8B3D /* FilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCell.m; sourceTree = "<group>"; };
 		AE33E77C1B32CC1800BC309A /* Yelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE33E7801B32CC1800BC309A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE33E7811B32CC1800BC309A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 			children = (
 				AE33E7AB1B35797200BC309A /* ResultCell.h */,
 				AE33E7AC1B35797200BC309A /* ResultCell.m */,
+				AE0592341B3C191B00DE8B3D /* FilterCell.h */,
+				AE0592351B3C191B00DE8B3D /* FilterCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE33E7851B32CC1800BC309A /* AppDelegate.m in Sources */,
+				AE0592361B3C191B00DE8B3D /* FilterCell.m in Sources */,
 				AE51CF3D1B36A53E00FB752B /* Business.m in Sources */,
 				AE33E7821B32CC1800BC309A /* main.m in Sources */,
 				AE51CF391B36A09900FB752B /* YPAPISample.m in Sources */,
