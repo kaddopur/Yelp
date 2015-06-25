@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilterViewController.h"
 
-@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FilterViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *businesses;

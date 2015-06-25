@@ -88,6 +88,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Filter delegate methods
+
+- (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)filters {
+    // fire a new network event.
+    NSLog(@"fire new netowrk event");
+    NSLog(@"%@", filters);
+}
+
 #pragma mark - TableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -102,14 +110,15 @@
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UINavigationController *nav = segue.destinationViewController;
+    FilterViewController *vc = (FilterViewController *)nav.topViewController;
+    vc.delegate = self;
+    NSLog(@"%@", vc);
 }
-*/
+
 
 @end

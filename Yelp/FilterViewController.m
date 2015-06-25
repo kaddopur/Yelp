@@ -15,11 +15,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self._pickerData = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
-    
-    self.picker.dataSource = self;
-    self.picker.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,6 +25,8 @@
 #pragma mark - Private method
 
 - (IBAction)onSearchButton:(id)sender {
+    NSLog(@"%@", self.delegate);
+    [self.delegate filterViewController:self didChangeFilters:@{@"asdf": @"zxcv"}];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
