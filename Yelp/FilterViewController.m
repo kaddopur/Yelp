@@ -44,12 +44,20 @@
 
 - (void)filterCell:(FilterCell *)filterCell didChangeState:(NSDictionary *)state {
     NSString *filter = state[@"filter"];
+    NSString *section = state[@"section"];
+    
     if ([state[@"on"] integerValue] == 1) {
+        if (![section isEqualToString:@"categories"]) {
+            for(NSString *siblingFilter in self.filters[section]) {
+                NSLog(@"%@", siblingFilter);
+                [self.activeFilters removeObject:siblingFilter];
+            }
+        }
         [self.activeFilters addObject:filter];
     } else {
         [self.activeFilters removeObject:filter];
     }
-    NSLog(@"%@", self.activeFilters);
+    [self.tableView reloadData];
 }
 
 #pragma mark - TableView
@@ -79,7 +87,7 @@
     
     cell.titleLabel.text = filter;
     cell.sectionTitle = sectionTitle;
-    cell.toggleSwitch.on = [self.activeFilters containsObject:cell.sectionTitle];
+    cell.toggleSwitch.on = [self.activeFilters containsObject:filter];
     cell.delegate = self;
     
     return cell;
@@ -87,8 +95,12 @@
 
 #pragma mark - Private method
 
+- (NSDictionary *)formatQuery {
+    return @{};
+}
+
 - (IBAction)onSearchButton:(id)sender {
-    [self.delegate filterViewController:self didChangeFilters:@{@"asdf": @"zxcv"}];
+    [self.delegate filterViewController:self didChangeFilters:[self formatQuery]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

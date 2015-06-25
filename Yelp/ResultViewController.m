@@ -90,10 +90,10 @@
 
 #pragma mark - Filter delegate methods
 
-- (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)filters {
+- (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)queryParams {
     // fire a new network event.
     NSLog(@"fire new netowrk event");
-    NSLog(@"%@", filters);
+    NSLog(@"%@", queryParams);
 }
 
 #pragma mark - TableView

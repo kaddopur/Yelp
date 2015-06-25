@@ -14,7 +14,7 @@
 
 @protocol FilterViewControllerDelegate <NSObject>
 
-- (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)filters;
+- (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)queryParams;
 
 @end
 
