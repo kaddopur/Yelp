@@ -16,10 +16,12 @@
 
 @end
 
-@interface FilterViewController : UIViewController
+@interface FilterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) id<FilterViewControllerDelegate> delegate;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *animals;
 - (IBAction)onSearchButton:(id)sender;
 - (IBAction)onCancelButton:(id)sender;
 
