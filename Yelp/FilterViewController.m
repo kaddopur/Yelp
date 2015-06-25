@@ -33,7 +33,7 @@
     self.filters = @{
                      @"deals": @[@"Offering a Deal"],
                      @"radius": @[@"Auto", @"100 meters", @"500 meters"],
-                     @"sort" : @[@"best match", @"distance", @"highest rated"],
+                     @"sort" : @[@"Best matched", @"Distance", @"Highest rated"],
                      @"categories": @[@"Barbeque", @"Cafeteria", @"Steakhouses", @"Sushi Bars"]
                      };
     self.filterSectionTitles = @[@"deals", @"radius", @"sort", @"categories"];

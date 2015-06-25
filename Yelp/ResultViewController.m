@@ -71,14 +71,15 @@
         if (error) {
             NSLog(@"An error happened during the request: %@", error);
         } else if (businesses) {
+            [self.businesses removeAllObjects];
             for(NSDictionary *business in businesses[@"businesses"]) {
                 [self.businesses addObject:[[Business alloc] initWithData:business]];
             }
+            [self.tableView reloadData];
         } else {
             NSLog(@"No business was found");
         }
         
-        [self.tableView reloadData];
         dispatch_group_leave(requestGroup);
     }];
     
