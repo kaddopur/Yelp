@@ -11,19 +11,22 @@
 
 @class FilterViewController;
 
+
 @protocol FilterViewControllerDelegate <NSObject>
 
 - (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)filters;
 
 @end
 
+
 @interface FilterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FilterCellDelegate>
 
 @property (weak, nonatomic) id<FilterViewControllerDelegate> delegate;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSDictionary *filters;
 @property (strong, nonatomic) NSArray *filterSectionTitles;
+@property (strong, nonatomic) NSMutableSet *activeFilters;
+
 - (IBAction)onSearchButton:(id)sender;
 - (IBAction)onCancelButton:(id)sender;
 
