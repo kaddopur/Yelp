@@ -16,7 +16,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.animals = @[@"Bear", @"Black Swan", @"Buffalo", @"Camel", @"Cockatoo", @"Dog", @"Donkey", @"Emu", @"Giraffe", @"Greater Rhea", @"Hippopotamus", @"Horse", @"Koala", @"Lion", @"Llama", @"Manatus", @"Meerkat", @"Panda", @"Peacock", @"Pig", @"Platypus", @"Polar Bear", @"Rhinoceros", @"Seagull", @"Tasmania Devil", @"Whale", @"Whale Shark", @"Wombat"];
+    self.filters = @{
+                     @"deals": @[@"Offering a Deal"],
+                     @"radius": @[@"Auto", @"100 meters", @"500 meters"],
+                     @"sort" : @[@"best match", @"distance", @"highest rated"],
+                     @"categories": @[]
+                     };
+    self.filterSectionTitles = @[@"deals", @"radius", @"sort", @"categories"];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -28,14 +34,31 @@
 }
 
 #pragma mark - TableView
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.animals.count;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.filterSectionTitles.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return self.filterSectionTitles[section];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSString *sectionTitle = self.filterSectionTitles[section];
+    NSArray *sectionFilters = self.filters[sectionTitle];
+    return [sectionFilters count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FilterCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FilterCellId" forIndexPath:indexPath];
     
-    cell.titleLabel.text = (NSString *)self.animals[indexPath.row];
+    NSString *sectionTitle = self.filterSectionTitles[indexPath.section];
+    NSArray *sectionFilters = self.filters[sectionTitle];
+    NSString *filter = sectionFilters[indexPath.row];
+    
+    cell.titleLabel.text = filter;
     cell.toggleSwitch.on = NO;
     
     return cell;

@@ -22,7 +22,8 @@
 @property (weak, nonatomic) id<FilterViewControllerDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *animals;
+@property (strong, nonatomic) NSDictionary *filters;
+@property (strong, nonatomic) NSArray *filterSectionTitles;
 - (IBAction)onSearchButton:(id)sender;
 - (IBAction)onCancelButton:(id)sender;
 
