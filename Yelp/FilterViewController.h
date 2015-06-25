@@ -7,9 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilterCell.h"
 
-@interface FilterViewController : UIViewController
+@class FilterViewController;
 
-- (IBAction)doneButtonClicked:(id)sender;
+
+@protocol FilterViewControllerDelegate <NSObject>
+
+- (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)queryParams;
+
+@end
+
+
+@interface FilterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FilterCellDelegate>
+
+@property (weak, nonatomic) id<FilterViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSDictionary *filters;
+@property (strong, nonatomic) NSArray *filterSectionTitles;
+@property (strong, nonatomic) NSMutableSet *activeFilters;
+@property (weak, nonatomic) NSUserDefaults *defaults;
+
+- (IBAction)onSearchButton:(id)sender;
+- (IBAction)onCancelButton:(id)sender;
 
 @end

@@ -9,14 +9,19 @@
 #import "FilterViewController.h"
 
 @interface FilterViewController ()
-
 @end
 
 @implementation FilterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self getInitialState];
+    self.defaults = [NSUserDefaults standardUserDefaults];
+    self.activeFilters = [NSMutableSet setWithArray:[self.defaults objectForKey:@"activeFilters"]];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,17 +29,103 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+# pragma mark - Private methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) getInitialState {
+    self.filters = @{
+                     @"deals": @[@"Offering a Deal"],
+                     @"radius": @[@"Auto", @"100 meters", @"500 meters"],
+                     @"sort" : @[@"Best matched", @"Distance", @"Highest rated"],
+                     @"categories": @[@"Barbeque", @"Cafeteria", @"Steakhouses", @"Sushi Bars"]
+                     };
+    self.filterSectionTitles = @[@"deals", @"radius", @"sort", @"categories"];
+    self.activeFilters = [NSMutableSet set];
 }
-*/
 
-- (IBAction)doneButtonClicked:(id)sender {
+#pragma mark - FilterCell Delegate
+
+- (void)filterCell:(FilterCell *)filterCell didChangeState:(NSDictionary *)state {
+    NSString *filter = state[@"filter"];
+    NSString *section = state[@"section"];
+    
+    if ([state[@"on"] integerValue] == 1) {
+        if (![section isEqualToString:@"categories"]) {
+            for(NSString *siblingFilter in self.filters[section]) {
+                [self.activeFilters removeObject:siblingFilter];
+            }
+        }
+        [self.activeFilters addObject:filter];
+    } else {
+        [self.activeFilters removeObject:filter];
+    }
+    [self.tableView reloadData];
+}
+
+#pragma mark - TableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.filterSectionTitles.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return self.filterSectionTitles[section];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSString *sectionTitle = self.filterSectionTitles[section];
+    NSArray *sectionFilters = self.filters[sectionTitle];
+    return [sectionFilters count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    FilterCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FilterCellId" forIndexPath:indexPath];
+    
+    NSString *sectionTitle = self.filterSectionTitles[indexPath.section];
+    NSArray *sectionFilters = self.filters[sectionTitle];
+    NSString *filter = sectionFilters[indexPath.row];
+    
+    cell.titleLabel.text = filter;
+    cell.sectionTitle = sectionTitle;
+    cell.toggleSwitch.on = [self.activeFilters containsObject:filter];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
+    
+    return cell;
+}
+
+#pragma mark - Private method
+
+- (NSDictionary *)formatQuery {
+    NSMutableDictionary *queryParams = [NSMutableDictionary dictionary];
+    NSMutableArray *categories = [NSMutableArray array];
+    
+    for (NSString *section in self.filters) {
+        for (NSString *filter in self.filters[section]) {
+            if ([self.activeFilters containsObject:filter]) {
+                if (![section isEqualToString:@"categories"]) {
+                    [queryParams setValue:filter forKey:section];
+                    break;
+                } else {
+                    [categories addObject:filter];
+                }
+            }
+        }
+    }
+    [queryParams setValue:categories forKey:@"categories"];
+    
+    return queryParams;
+}
+
+- (IBAction)onSearchButton:(id)sender {
+    [self.defaults setObject:[NSArray arrayWithArray:[self.activeFilters allObjects]] forKey:@"activeFilters"];
+    [self.defaults synchronize];
+    [self.delegate filterViewController:self didChangeFilters:[self formatQuery]];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)onCancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

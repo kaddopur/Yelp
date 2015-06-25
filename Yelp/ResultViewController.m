@@ -28,10 +28,11 @@
     
     
     // set SearchBar propterties
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
-    [searchBar sizeToFit];
-    searchBar.searchBarStyle = UISearchBarStyleDefault;
-    self.navigationItem.titleView = searchBar;
+    self.searchBar = [[UISearchBar alloc] init];
+    [self.searchBar sizeToFit];
+    self.searchBar.searchBarStyle = UISearchBarStyleDefault;
+    self.navigationItem.titleView = self.searchBar;
+    [self.searchBar setDelegate:self];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -41,16 +42,17 @@
     
     // init TableView data
     self.businesses = [[NSMutableArray alloc] initWithArray:@[]];
-    [self updateBusinessWithTerm:nil andLocation:nil];
+    [self updateBusinessWithTerm:nil andLocation:nil andQuery:nil];
 }
 
 -(void)dismissKeyboard {
     [self.navigationItem.titleView resignFirstResponder];
 }
 
-- (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation {
-    NSString *defaultTerm = @"dinner";
+- (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation andQuery:(NSDictionary *)searchQuery {
+    NSString *defaultTerm = @"";
     NSString *defaultLocation = @"San Francisco, CA";
+    NSDictionary *defaultQuery = @{};
     
     //Get the term and location from the command line if there were any, otherwise assign default values.
     //NSString *term = [[NSUserDefaults standardUserDefaults] valueForKey:@"term"] ?: defaultTerm;
@@ -58,25 +60,27 @@
     
     NSString *term = searchTerm ?: defaultTerm;
     NSString *location = searchLocation ?: defaultLocation;
+    NSDictionary *query = searchQuery ?: defaultQuery;
     
     YPAPISample *APISample = [[YPAPISample alloc] init];
     
     dispatch_group_t requestGroup = dispatch_group_create();
     
     dispatch_group_enter(requestGroup);
-    [APISample queryTopBusinessInfoForTerm:term location:location completionHandler:^(NSDictionary *businesses, NSError *error) {
+    [APISample queryTopBusinessInfoForTerm:term location:location query:query completionHandler:^(NSDictionary *businesses, NSError *error) {
         
         if (error) {
             NSLog(@"An error happened during the request: %@", error);
         } else if (businesses) {
+            [self.businesses removeAllObjects];
             for(NSDictionary *business in businesses[@"businesses"]) {
                 [self.businesses addObject:[[Business alloc] initWithData:business]];
             }
+            [self.tableView reloadData];
         } else {
             NSLog(@"No business was found");
         }
         
-        [self.tableView reloadData];
         dispatch_group_leave(requestGroup);
     }];
     
@@ -86,6 +90,28 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - SearchBar delegate methods
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self updateBusinessWithTerm:searchBar.text andLocation:nil andQuery:self.queryParams];
+    [self dismissKeyboard];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText length] == 0) {
+        [self updateBusinessWithTerm:searchBar.text andLocation:nil andQuery:self.queryParams];
+    }
+}
+
+#pragma mark - Filter delegate methods
+
+- (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)queryParams {
+    // fire a new network event.
+    self.queryParams = queryParams;
+    [self updateBusinessWithTerm:self.searchBar.text andLocation:nil andQuery:self.queryParams];
 }
 
 #pragma mark - TableView
@@ -102,14 +128,15 @@
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UINavigationController *nav = segue.destinationViewController;
+    FilterViewController *vc = (FilterViewController *)nav.topViewController;
+    vc.delegate = self;
+    NSLog(@"%@", vc);
 }
-*/
+
 
 @end

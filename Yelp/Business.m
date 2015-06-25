@@ -7,7 +7,7 @@
 //
 
 #import "Business.h"
-#import <CoreLocation/CoreLocation.h>
+@import CoreLocation;
 
 @implementation Business
 
