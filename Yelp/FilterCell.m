@@ -20,4 +20,12 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)onSwitchToggled:(id)sender {
+    NSDictionary *state = @{
+                            @"section": self.sectionTitle,
+                            @"filter": self.titleLabel.text,
+                            @"on": [NSNumber numberWithBool:self.toggleSwitch.on]};
+    [self.delegate filterCell:self
+               didChangeState:state];
+}
 @end

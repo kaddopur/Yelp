@@ -20,7 +20,7 @@
                      @"deals": @[@"Offering a Deal"],
                      @"radius": @[@"Auto", @"100 meters", @"500 meters"],
                      @"sort" : @[@"best match", @"distance", @"highest rated"],
-                     @"categories": @[]
+                     @"categories": @[@"Barbeque", @"Cafeteria", @"Steakhouses", @"Sushi Bars"]
                      };
     self.filterSectionTitles = @[@"deals", @"radius", @"sort", @"categories"];
     
@@ -31,6 +31,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - FilterCell Delegate
+
+- (void)filterCell:(FilterCell *)filterCell didChangeState:(NSDictionary *)state {
+    NSLog(@"%@", state);
 }
 
 #pragma mark - TableView
@@ -59,7 +65,9 @@
     NSString *filter = sectionFilters[indexPath.row];
     
     cell.titleLabel.text = filter;
+    cell.sectionTitle = sectionTitle;
     cell.toggleSwitch.on = NO;
+    cell.delegate = self;
     
     return cell;
 }
@@ -67,7 +75,6 @@
 #pragma mark - Private method
 
 - (IBAction)onSearchButton:(id)sender {
-    NSLog(@"%@", self.delegate);
     [self.delegate filterViewController:self didChangeFilters:@{@"asdf": @"zxcv"}];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

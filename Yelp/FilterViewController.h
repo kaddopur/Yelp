@@ -17,7 +17,7 @@
 
 @end
 
-@interface FilterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FilterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FilterCellDelegate>
 
 @property (weak, nonatomic) id<FilterViewControllerDelegate> delegate;
 
