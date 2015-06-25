@@ -76,15 +76,14 @@
             for(NSDictionary *business in businesses[@"businesses"]) {
                 [self.businesses addObject:[[Business alloc] initWithData:business]];
             }
-            [self.tableView reloadData];
         } else {
             NSLog(@"No business was found");
         }
-        
         dispatch_group_leave(requestGroup);
     }];
     
     dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
