@@ -89,6 +89,7 @@
     cell.titleLabel.text = filter;
     cell.sectionTitle = sectionTitle;
     cell.toggleSwitch.on = [self.activeFilters containsObject:filter];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
     
     return cell;

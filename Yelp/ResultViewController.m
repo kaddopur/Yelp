@@ -28,11 +28,11 @@
     
     
     // set SearchBar propterties
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
-    [searchBar sizeToFit];
-    searchBar.searchBarStyle = UISearchBarStyleDefault;
-    self.navigationItem.titleView = searchBar;
-    [searchBar setDelegate:self];
+    self.searchBar = [[UISearchBar alloc] init];
+    [self.searchBar sizeToFit];
+    self.searchBar.searchBarStyle = UISearchBarStyleDefault;
+    self.navigationItem.titleView = self.searchBar;
+    [self.searchBar setDelegate:self];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -111,7 +111,7 @@
 - (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)queryParams {
     // fire a new network event.
     self.queryParams = queryParams;
-    [self updateBusinessWithTerm:nil andLocation:nil andQuery:self.queryParams];
+    [self updateBusinessWithTerm:self.searchBar.text andLocation:nil andQuery:self.queryParams];
 }
 
 #pragma mark - TableView

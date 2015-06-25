@@ -12,6 +12,7 @@
 @interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FilterViewControllerDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *businesses;
 @property (strong, nonatomic) NSDictionary *queryParams;
 
