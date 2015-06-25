@@ -41,16 +41,17 @@
     
     // init TableView data
     self.businesses = [[NSMutableArray alloc] initWithArray:@[]];
-    [self updateBusinessWithTerm:nil andLocation:nil];
+    [self updateBusinessWithTerm:nil andLocation:nil andQuery:nil];
 }
 
 -(void)dismissKeyboard {
     [self.navigationItem.titleView resignFirstResponder];
 }
 
-- (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation {
+- (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation andQuery:(NSDictionary *)searchQuery {
     NSString *defaultTerm = @"dinner";
     NSString *defaultLocation = @"San Francisco, CA";
+    NSDictionary *defaultQuery = @{};
     
     //Get the term and location from the command line if there were any, otherwise assign default values.
     //NSString *term = [[NSUserDefaults standardUserDefaults] valueForKey:@"term"] ?: defaultTerm;
@@ -58,13 +59,14 @@
     
     NSString *term = searchTerm ?: defaultTerm;
     NSString *location = searchLocation ?: defaultLocation;
+    NSDictionary *query = searchQuery ?: defaultQuery;
     
     YPAPISample *APISample = [[YPAPISample alloc] init];
     
     dispatch_group_t requestGroup = dispatch_group_create();
     
     dispatch_group_enter(requestGroup);
-    [APISample queryTopBusinessInfoForTerm:term location:location completionHandler:^(NSDictionary *businesses, NSError *error) {
+    [APISample queryTopBusinessInfoForTerm:term location:location query:query completionHandler:^(NSDictionary *businesses, NSError *error) {
         
         if (error) {
             NSLog(@"An error happened during the request: %@", error);
@@ -92,8 +94,7 @@
 
 - (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)queryParams {
     // fire a new network event.
-    NSLog(@"fire new netowrk event");
-    NSLog(@"%@", queryParams);
+    [self updateBusinessWithTerm:nil andLocation:nil andQuery:queryParams];
 }
 
 #pragma mark - TableView

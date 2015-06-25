@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *businesses;
 
-- (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation;
+- (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation andQuery:(NSDictionary *)searchQuery;
 
 @end
