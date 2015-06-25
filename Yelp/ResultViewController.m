@@ -32,6 +32,7 @@
     [searchBar sizeToFit];
     searchBar.searchBarStyle = UISearchBarStyleDefault;
     self.navigationItem.titleView = searchBar;
+    [searchBar setDelegate:self];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -91,11 +92,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - SearchBar delegate methods
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self updateBusinessWithTerm:searchBar.text andLocation:nil andQuery:self.queryParams];
+    [self dismissKeyboard];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText length] == 0) {
+        [self updateBusinessWithTerm:searchBar.text andLocation:nil andQuery:self.queryParams];
+    }
+}
+
 #pragma mark - Filter delegate methods
 
 - (void)filterViewController:(FilterViewController *)filterViewController didChangeFilters:(NSDictionary *)queryParams {
     // fire a new network event.
-    [self updateBusinessWithTerm:nil andLocation:nil andQuery:queryParams];
+    self.queryParams = queryParams;
+    [self updateBusinessWithTerm:nil andLocation:nil andQuery:self.queryParams];
 }
 
 #pragma mark - TableView

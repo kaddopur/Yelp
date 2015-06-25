@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "FilterViewController.h"
 
-@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FilterViewControllerDelegate>
+@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FilterViewControllerDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *businesses;
+@property (strong, nonatomic) NSDictionary *queryParams;
 
 - (void)updateBusinessWithTerm:(NSString *)searchTerm andLocation:(NSString *)searchLocation andQuery:(NSDictionary *)searchQuery;
 
